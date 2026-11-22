@@ -1,0 +1,22 @@
+{
+  "templateId": "next-carpentry-timber",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "fullPage": false,
+  "captures": [
+    {
+      "mode": "light",
+      "sha256": "56b0c6dc94038f8af071a28df305932310f2985022e4b4915bc130a5e5328f2a",
+      "file": "jamstacks/home-light.jpg",
+      "bytes": 175009
+    },
+    {
+      "mode": "dark",
+      "sha256": "1c7a299162d8442fdc4dfec19d478a484df1c40e660ae3786f1a9711953d0447",
+      "file": "jamstacks/home-dark.jpg",
+      "bytes": 161555
+    }
+  ]
+}

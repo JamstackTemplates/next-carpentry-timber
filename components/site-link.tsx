@@ -11,6 +11,8 @@ type SiteLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
   children: ReactNode;
   /** Mark as the current page when the route matches (navigation links). */
   markCurrent?: 'page' | 'section';
+  /** Close this popover when the link navigates in the current document. */
+  closePopover?: string;
 };
 
 /**
@@ -20,7 +22,7 @@ type SiteLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
  * observing after ten seconds; it has no public remount API. A full document load for Contact
  * guarantees one fresh bootstrap after the host exists, including on delayed or repeated visits.
  */
-export function SiteLink({ href, children, markCurrent, ...rest }: SiteLinkProps) {
+export function SiteLink({ href, children, markCurrent, closePopover, ...rest }: SiteLinkProps) {
   const pathname = usePathname();
   const target = route(href);
   const current = route(pathname || '/');
@@ -32,5 +34,14 @@ export function SiteLink({ href, children, markCurrent, ...rest }: SiteLinkProps
   if (isContactRoute(target) || isContactRoute(current)) {
     return <a href={documentHref(target)} aria-current={ariaCurrent} {...rest}>{children}</a>;
   }
-  return <Link href={target} aria-current={ariaCurrent} {...rest}>{children}</Link>;
+  return (
+    <Link
+      href={target}
+      aria-current={ariaCurrent}
+      onNavigate={closePopover ? () => document.getElementById(closePopover)?.hidePopover?.() : undefined}
+      {...rest}
+    >
+      {children}
+    </Link>
+  );
 }

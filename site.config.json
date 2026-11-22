@@ -1,7 +1,8 @@
 {
-  "name": "Jamstacks starter",
-  "description": "A neutral Next.js foundation for Jamstacks websites.",
-  "domain": "",
+  "name": "Heartwood Carpentry",
+  "description": "Custom furniture, kitchens and hardwood decks, made by hand in a Hobart workshop from Tasmanian oak, blackwood, myrtle and spotted gum.",
+  "domain": "next-carpentry-timber.jamstacks.net",
+  "timeZone": "Australia/Hobart",
   "jamstacks": {
     "siteId": "",
     "cdnUrl": "https://cdn.jamstacks.net"
